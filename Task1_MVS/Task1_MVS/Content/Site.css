@@ -1,0 +1,42 @@
+﻿img {
+    width: 20%;
+}
+
+body {
+    background-color: gray;
+    color: white;
+}
+
+.text-box.single-line {
+    width: 60%;
+}
+
+.recall.card,
+.radio.card{
+    color:black ;
+    background-color: white;
+    margin: 1% auto;
+}
+
+.card.form {
+    color: black;
+    background-color: gray;
+    width: 50%;
+    margin: 2% auto;
+}
+
+ button {
+    width: 30%;
+    margin: 2% auto;
+}
+
+.card-subtitle.mb-2.text-muted {
+    font-size: 9pt;
+}
+#profile {
+    width: 50%;
+}
+
+.col-10.render-body {
+    min-height: 75vh;
+}

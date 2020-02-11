@@ -1,0 +1,42 @@
+﻿@using Task1_MVS.Models
+
+
+@model Task1_MVS.Models.GuestProfile
+@{
+    ViewBag.Title = "";
+}
+@using (Html.BeginForm("ProfileGuest", "Home"))
+{
+    <div class="card text-white bg-dark mb-3">
+        @Html.ValidationMessageFor(x => x.Name)
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { placeholder = "Имя", id = "profile" })
+        @{
+            var j = 0;
+        }
+        @foreach (var item in Model.Questions)
+        {
+            @Html.Label("text", item.QuestionText)
+            <div class="radio card">
+
+                @for (int i = 0; i < item.Options.Count; i++)
+                {
+                    <div>
+
+                        @Html.RadioButton(nameof(Model.Answers) + "[" + j + "]", i, i == 0, new { @class = "form-check-input", id = item.Options[i].GetHashCode() })
+
+                        <label class="form-check-label" for="@item.Options[i].GetHashCode()">@item.Options[i]</label>
+
+                    </div>
+                }
+            </div>
+            j++;
+        }
+        <div class="form-check">
+            <input class="form-check-input" id="@nameof(Model.Check)" name="@nameof(Model.Check)" value="true" type="checkbox" checked />
+            <label class="form-check-label" for="@nameof(Model.Check)">Фото феи винкс в результате</label><br />
+        </div>
+
+        <button type="submit">Отправить</button>
+    </div>
+}

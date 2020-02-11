@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "ResultProfile";
+}
+@using Task1_MVS.Models
+@model Task1_MVS.Models.ResultFairy
+
+<div class="card text-white bg-dark mb-3">
+    @if (Model.GuestProfile.Check)
+    {
+        <img src="@Model.ImgSrc" />
+    }
+    @if (Model.GuestProfile.Name != null)
+    {
+        <label>Привет, @Model.GuestProfile.Name</label>
+    }
+    <label>Вы-@Model.Name</label>
+    @MyFirstHelper(Model.GuestProfile)
+</div>
+
+@helper MyFirstHelper(GuestProfile dataFairy)
+{
+
+    <label>Ваши ответы:</label>
+    <ul>
+        @for (int i = 0; i < dataFairy.Questions.Count; i++)
+        {
+        var item = dataFairy.Questions[i];
+        <label>@item.QuestionText</label>
+
+        <li> @item.Options[dataFairy.Answers[i]]</li>
+
+        }
+    </ul>
+}

@@ -1,0 +1,19 @@
+﻿
+@model Task1_MVS.Models.ViewModels.ArticlesViewModel
+@{
+    ViewBag.Title = "Главная";
+}
+
+@foreach (var item in Model.Articles)
+{
+    <div class="card text-white bg-dark mb-3 ">
+        <p class="card-header">@item.Name</p>
+        <div class="card-body">
+            <p class="card-subtitle mb-2 text-muted">@item.PublishingDate.ToShortDateString()</p>
+            <div class="card-text">@item.TextArticle</div>
+        </div>
+    </div>
+
+}
+
+

@@ -1,0 +1,17 @@
+﻿@model Task1_MVS.Models.RecallData
+
+@using (Html.BeginForm("Guest","Home", FormMethod.Post))
+{
+    <div class="card form text-white bg-dark mb-3 ">
+        @Html.LabelFor(x => x.Name)
+        @Html.ValidationMessageFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { placeholder = "Имя" })
+
+        @Html.LabelFor(x => x.Text)
+        @Html.ValidationMessageFor(x => x.Text)
+        @Html.TextAreaFor(x => x.Text, new { placeholder = "Отзыв" })
+
+        <button type="submit">Отправить</button>
+    </div>
+   
+}

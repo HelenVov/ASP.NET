@@ -1,0 +1,26 @@
+﻿@model Task1_MVS.Models.ViewModels.RecallViewModel
+@{
+    ViewBag.Title = "Гостевая";
+}
+
+<div class="form justify-content-center">
+    @Html.Partial("RecallDataForm", Model.FormData)
+</div>
+
+<div class="dateform">
+    @if (Model.RecallDatas.Count != 0)
+    {
+        foreach (var item in Model.RecallDatas)
+        {
+            <div class="recall card">
+                <p class="card-title">@item.Name</p>
+                <p class="card-subtitle mb-2 text-muted">@item.Time</p>
+                <p class="card-text">@item.Text</p>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="text-center">Отзывов 0</p>
+    }
+</div>
