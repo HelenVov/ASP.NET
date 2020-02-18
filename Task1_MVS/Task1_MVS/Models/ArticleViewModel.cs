@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Task1_MVS.Models
+namespace Task1_MVC.Models
 {
-    public class Article
+    public class ArticleViewModel
     {
         public string Name { get; set; }
 

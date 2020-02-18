@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Task1_MVS.Models
+namespace Task1_MVC.Models
 {
-    public class ResultFairy
+    public class ResultFairyViewModel
     {
         public string Name { get; set; }
+
         public string ImgSrc { get; set; }
 
-        public GuestProfile GuestProfile { get; set; }
+        public GuestProfileViewModel GuestProfile { get; set; }
     }
 }

@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Task1_MVS.Models
+namespace Task1_MVC.Models
 {
-    public class RecallData
+    public class RecallDataViewModel
     {
         [Required]
         [DisplayName("Введите имя:")]
@@ -16,7 +16,7 @@ namespace Task1_MVS.Models
 
         [Required]
         [DisplayName("Введите отзыв:")]
-        [StringLength(maximumLength:50, MinimumLength = 10)]
+        [StringLength(maximumLength: 50, MinimumLength = 10)]
         public string Text { get; set; }
     }
 }

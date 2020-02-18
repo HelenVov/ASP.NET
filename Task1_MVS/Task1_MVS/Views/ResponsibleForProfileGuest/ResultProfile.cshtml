@@ -1,8 +1,8 @@
 ﻿@{
     ViewBag.Title = "ResultProfile";
 }
-@using Task1_MVS.Models
-@model Task1_MVS.Models.ResultFairy
+@using Task1_MVC.Models
+@model Task1_MVC.Models.ResultFairyViewModel
 
 <div class="card text-white bg-dark mb-3">
     @if (Model.GuestProfile.Check)
@@ -17,17 +17,17 @@
     @MyFirstHelper(Model.GuestProfile)
 </div>
 
-@helper MyFirstHelper(GuestProfile dataFairy)
+@helper MyFirstHelper(GuestProfileViewModel dataFairy)
 {
 
     <label>Ваши ответы:</label>
     <ul>
         @for (int i = 0; i < dataFairy.Questions.Count; i++)
         {
-        var item = dataFairy.Questions[i];
-        <label>@item.QuestionText</label>
+            var item = dataFairy.Questions[i];
+            <label>@item.QuestionText</label>
 
-        <li> @item.Options[dataFairy.Answers[i]]</li>
+            <li> @item.Options[dataFairy.Answers[i]]</li>
 
         }
     </ul>

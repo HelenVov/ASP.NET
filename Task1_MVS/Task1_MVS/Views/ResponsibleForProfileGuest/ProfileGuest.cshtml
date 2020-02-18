@@ -1,11 +1,11 @@
-﻿@using Task1_MVS.Models
+﻿@using Task1_MVC.Models
 
 
-@model Task1_MVS.Models.GuestProfile
+@model Task1_MVC.Models.GuestProfileViewModel
 @{
     ViewBag.Title = "";
 }
-@using (Html.BeginForm("ProfileGuest", "Home"))
+@using (Html.BeginForm("ProfileGuest", "ResponsibleForProfileGuest"))
 {
     <div class="card text-white bg-dark mb-3">
         @Html.ValidationMessageFor(x => x.Name)

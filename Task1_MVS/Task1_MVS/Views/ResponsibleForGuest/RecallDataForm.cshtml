@@ -1,6 +1,6 @@
-﻿@model Task1_MVS.Models.RecallData
+﻿@model Task1_MVC.Models.RecallDataViewModel
 
-@using (Html.BeginForm("Guest","Home", FormMethod.Post))
+@using (Html.BeginForm("Guest", "ResponsibleForGuest", FormMethod.Post))
 {
     <div class="card form text-white bg-dark mb-3 ">
         @Html.LabelFor(x => x.Name)
@@ -13,5 +13,5 @@
 
         <button type="submit">Отправить</button>
     </div>
-   
+
 }

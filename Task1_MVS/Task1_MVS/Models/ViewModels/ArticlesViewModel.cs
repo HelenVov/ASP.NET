@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace Task1_MVS.Models.ViewModels
+namespace Task1_MVC.Models.ViewModels
 {
     public class ArticlesViewModel
     {
-        public List<Article> Articles { get; set; }
+        public List<ArticleViewModel> Articles { get; set; }
     }
 }

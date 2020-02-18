@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace Task1_MVS.Models.ViewModels
+namespace Task1_MVC.Models.ViewModels
 {
     public class RecallViewModel
     {
-        public List<RecallData> RecallDatas { get; set; } = StaticRecallData.DataForms;
+        public List<RecallDataViewModel> RecallDatas { get; set; }
 
-        public RecallData FormData { get; set; } = new RecallData();
+        public RecallDataViewModel FormData { get; set; } = new RecallDataViewModel();
     }
 }
