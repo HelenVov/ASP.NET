@@ -20,7 +20,9 @@ namespace Task1_MVC.WorkWithData
             {
                 Name = x.ArticleName,
                 PublishingDate = x.ArticlePublishingDate,
-                TextArticle = x.ArticleTextArticle
+                TextArticle = x.ArticleTextArticle,
+                Tags = x.Tags.Split('|').ToList(),
+                Id = x.Id
             }).ToList();
         }
 
@@ -42,6 +44,7 @@ namespace Task1_MVC.WorkWithData
                 Time = x.RecallDataTime
             }).ToList();
         }
+
         /// <summary>
         /// RecallDataViewModel To RecallData 
         /// </summary>
@@ -67,6 +70,22 @@ namespace Task1_MVC.WorkWithData
             }).ToList();
         }
 
-        
+        /// <summary>
+        /// Article  DB to view model  article
+        /// </summary>
+        /// <param name="article"></param>
+        /// <returns></returns>
+        public ArticleViewModel DbToArticle(Article article)
+        {
+            return new ArticleViewModel
+            {
+                Name = article.ArticleName,
+                PublishingDate = article.ArticlePublishingDate,
+                TextArticle = article.ArticleTextArticle,
+                Tags = article.Tags.Split('|').ToList(),
+                Id = article.Id
+            };
+        }
+
     }
 }

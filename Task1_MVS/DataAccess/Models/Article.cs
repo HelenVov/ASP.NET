@@ -14,6 +14,6 @@ namespace DataAccess.Models
 
         public string ArticleTextArticle { get; set; }
 
-
+        public string Tags { get; set; }
     }
 }

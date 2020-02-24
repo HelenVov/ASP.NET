@@ -21,5 +21,7 @@ namespace DataAccess.Models
         public DbSet<RecallData> Recalls { get; set; }
 
         public  DbSet<Question> Questions { get; set; }
+
+        public DbSet<Tag> Tags { get; set; }
     }
 }

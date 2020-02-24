@@ -26,14 +26,23 @@ namespace Task1_MVC.Controllers
         /// <returns>Data of the main page, article</returns>
         public ActionResult Index()
         {
-            return View(GetArticles());
+            return View(GetArticlesIndex());
         }
 
+        
+        public ActionResult MoreDetailsArticle(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return View("Error");
+            }
+            return View(GetArticle(id.Value));
+        }
         /// <summary>
         /// Get Articles For View Model From DB
         /// </summary>
         /// <returns></returns>
-        private ArticlesViewModel GetArticles()
+        private ArticlesViewModel GetArticlesIndex()
         {
             var articles = _workWithDatabase.GetArticles();
             var anotherArticles = _сonverter.ToArticleViewModelList(articles.ToList());
@@ -44,5 +53,12 @@ namespace Task1_MVC.Controllers
             };
         }
 
+        private ArticleViewModel GetArticle(int id)
+        {
+            var article = _workWithDatabase.GetArticle(id);
+            var anotherArticle = _сonverter.DbToArticle(article);
+
+            return anotherArticle;
+        }
     }
 }

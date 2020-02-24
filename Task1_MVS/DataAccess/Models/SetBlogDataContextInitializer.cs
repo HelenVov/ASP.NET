@@ -12,6 +12,44 @@ namespace DataAccess.Models
 
         protected override void Seed(SetBlogDataContext context)
         {
+            var tags = new List<Tag>
+            {
+                new Tag
+                {
+                    TagName = "Фея"
+                },
+                new Tag
+                {
+                    TagName = "Магия"
+                },
+                new Tag
+                {
+                    TagName = "Блум"
+                },
+                new Tag
+                {
+                    TagName =  "Стелла"
+                },
+                new Tag
+                {
+                    TagName = "Флора"
+                },
+                new Tag
+                {
+                    TagName = "Муза"
+                },
+                new Tag
+                {
+                    TagName =  "Текна"
+                },
+                new Tag
+                {
+                    TagName = "Лейла"
+                }
+
+            };
+            tags.ForEach(str => context.Tags.Add(str));
+
             var articles = new List<Article>
             {
 
@@ -97,6 +135,8 @@ namespace DataAccess.Models
                 }
 
             };
+
+            articles.ForEach(std => std.Tags = GetTagsArticle(tags, std.ArticleName));
             articles.ForEach(std => context.Articles.Add(std));
 
             var question = new List<Question>
@@ -161,7 +201,23 @@ namespace DataAccess.Models
             context.SaveChanges();
 
         }
-    }
 
+        public string GetTagsArticle(List<Tag> tags, string name)
+        {
+            string tagsAtricle = "";
+            foreach (var item in tags)
+            {
+                if (item.TagName == name)
+                {
+                    tagsAtricle += item.TagName + "|";
+                }
+            }
+            tagsAtricle += tags[0].TagName + "|";
+            tagsAtricle += tags[1].TagName;
+
+
+            return tagsAtricle;
+        }
+    }
 
 }

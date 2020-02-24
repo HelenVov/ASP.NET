@@ -14,21 +14,16 @@ namespace Task1_MVC.App_Start
     {
         public static void ConfigureContainer()
         {
-            // получаем экземпляр контейнера
             var builder = new ContainerBuilder();
 
-            // регистрируем контроллер в текущей сборке
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            // регистрируем споставление типов
             builder.RegisterType<WorkWithDatabase>().As<WorkWithDatabase>();
-            builder.RegisterType<SetBlogDataContext>().As<SetBlogDataContext>().SingleInstance();
+            builder.RegisterType<SetBlogDataContext>().As<SetBlogDataContext>().InstancePerRequest();
             builder.RegisterType<Сonverter>().As<Сonverter>().SingleInstance();
 
-            // создаем новый контейнер с теми зависимостями, которые определены выше
             var container = builder.Build();
 
-            // установка сопоставителя зависимостей
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }

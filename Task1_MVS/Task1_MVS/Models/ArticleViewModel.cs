@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Task1_MVC.Models
 {
@@ -10,6 +11,8 @@ namespace Task1_MVC.Models
 
         public string TextArticle { get; set; }
 
+        public List<string> Tags { get; set; }
 
+        public int Id { get; set; }
     }
 }

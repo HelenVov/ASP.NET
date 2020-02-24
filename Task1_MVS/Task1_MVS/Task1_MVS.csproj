@@ -211,6 +211,9 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Views\ResponsibleForGuest\RecallDataForm.cshtml" />
     <Content Include="Views\ResponsibleForProfileGuest\ResultProfile.cshtml" />
+    <Content Include="Views\Shared\_LayoutMenu.cshtml" />
+    <Content Include="Views\Shared\_LayoutMenuAndVoting.cshtml" />
+    <Content Include="Views\ResponsibleForIndex\MoreDetailsArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

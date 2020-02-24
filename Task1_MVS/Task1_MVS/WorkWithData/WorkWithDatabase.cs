@@ -20,7 +20,10 @@ namespace Task1_MVC.WorkWithData
 
         public IEnumerable<Article> GetArticles()
         {
-            return _context.Articles.ToList();
+            var articles = _context.Articles.ToList();
+            articles.ForEach(x => x.ArticleTextArticle = CroppingStartString(x.ArticleTextArticle)
+            );
+            return articles;
         }
 
         public IEnumerable<RecallData> GetRecalls()
@@ -39,6 +42,19 @@ namespace Task1_MVC.WorkWithData
             _context.SaveChanges();
         }
 
+        public Article GetArticle(int id)
+        {
+            return _context.Articles.FirstOrDefault(o => o.Id == id);
+        }
 
+        private string CroppingStartString(string text)
+        {
+            if (text.Length > 200)
+            {
+                return text.Substring(0, 200) + "...";
+            }
+
+            return text;
+        }
     }
 }

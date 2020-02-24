@@ -2,6 +2,8 @@
 @model Task1_MVC.Models.ViewModels.ArticlesViewModel
 @{
     ViewBag.Title = "Главная";
+    Layout = "~/Views/Shared/_LayoutMenuAndVoting.cshtml";
+
 }
 
 @foreach (var item in Model.Articles)
@@ -11,7 +13,11 @@
         <div class="card-body">
             <p class="card-subtitle mb-2 text-muted">@item.PublishingDate.ToShortDateString()</p>
             <div class="card-text">@item.TextArticle</div>
+
         </div>
+        <button name="button" id="more-details" type="submit">
+            @Html.ActionLink("Подробнее", "MoreDetailsArticle", new { id = item.Id })
+        </button>
     </div>
 
 }

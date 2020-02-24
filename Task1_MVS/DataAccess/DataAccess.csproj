@@ -57,6 +57,7 @@
     <Compile Include="Models\RecallData.cs" />
     <Compile Include="Models\SetBlogDataContext.cs" />
     <Compile Include="Models\SetBlogDataContextInitializer.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

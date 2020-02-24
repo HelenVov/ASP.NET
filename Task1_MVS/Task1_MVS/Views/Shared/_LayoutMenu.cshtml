@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "./_Layout.cshtml";
+}
+<div class="row col-10">
+
+    <div class="col-10 render-body">
+        @RenderBody()
+    </div>
+    <div class="col-2">
+        <ul class="list-group">
+            <li class="list-group-item"><a>@Html.ActionLink("Главная", "Index", "ResponsibleForIndex")</a></li>
+            <li class="list-group-item"><a>@Html.ActionLink("Гостевая", "Guest", "ResponsibleForGuest")</a></li>
+            <li class="list-group-item"><a>@Html.ActionLink("Анкета", "ProfileGuest", "ResponsibleForProfileGuest")</a></li>
+        </ul>
+    </div>
+</div>
