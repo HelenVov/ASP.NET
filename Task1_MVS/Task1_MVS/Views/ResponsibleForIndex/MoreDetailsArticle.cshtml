@@ -5,18 +5,19 @@
 
 }
 
-<div class="card text-white bg-dark mb-3 ">
-    <p class="card-header">@Model.Name</p>
-    <div class="card-body">
-        <p class="card-subtitle mb-2 text-muted">@Model.PublishingDate.ToShortDateString()</p>
-        <div class="card-text">@Model.TextArticle</div>
+{
+    <div class="card text-white bg-dark mb-3 ">
+        <p class="card-header">@Model.Name</p>
+        <div class="card-body">
+            <p class="card-subtitle mb-2 text-muted">@Model.PublishingDate.ToShortDateString()</p>
+            <div class="card-text">@Model.TextArticle</div>
 
+        </div>
+        <ul>
+            @foreach (var it in Model.Tags)
+            {
+                <li>@it</li>
+            }
+        </ul>
     </div>
-    <ul>
-        @foreach (var it in Model.Tags)
-        {
-            <li>@it</li>
-        }
-    </ul>
-</div>
 

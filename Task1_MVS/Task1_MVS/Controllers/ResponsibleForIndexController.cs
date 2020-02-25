@@ -6,6 +6,7 @@ using DataAccess.Models;
 using Task1_MVC.Models.ViewModels;
 using Task1_MVC.WorkWithData;
 using Task1_MVC.Models;
+using Task1_MVS.Models;
 
 namespace Task1_MVC.Controllers
 {
@@ -29,6 +30,14 @@ namespace Task1_MVC.Controllers
             return View(GetArticlesIndex());
         }
 
+        [HttpPost]
+        public ActionResult Index(bool radio)
+        {
+            _workWithDatabase.AddAnswer(radio);
+            return PartialView("AnswerResult",GetAnswerResultViewModel());
+        }
+
+       
         
         public ActionResult MoreDetailsArticle(int? id)
         {
@@ -59,6 +68,11 @@ namespace Task1_MVC.Controllers
             var anotherArticle = _сonverter.DbToArticle(article);
 
             return anotherArticle;
+        }
+
+        private AnswerResultViewModel GetAnswerResultViewModel()
+        {
+            return _workWithDatabase.GetAnswerResult();
         }
     }
 }

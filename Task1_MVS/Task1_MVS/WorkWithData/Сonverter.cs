@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using DataAccess.Models;
 using Task1_MVC.Models;
+using Task1_MVS.Models;
 
 namespace Task1_MVC.WorkWithData
 {
@@ -37,6 +38,7 @@ namespace Task1_MVC.WorkWithData
             {
                 return new List<RecallDataViewModel>();
             }
+
             return recallsData.Select(x => new RecallDataViewModel()
             {
                 Name = x.RecallDataName,

@@ -11,18 +11,21 @@
             <li class="list-group-item"><a>@Html.ActionLink("Гостевая", "Guest", "ResponsibleForGuest")</a></li>
             <li class="list-group-item"><a>@Html.ActionLink("Анкета", "ProfileGuest", "ResponsibleForProfileGuest")</a></li>
         </ul>
+        
+        @using (Html.BeginForm("Index","ResponsibleForIndex",FormMethod.Post))
+        {
         <div class="radio card text-white bg-dark mb-3">
             @Html.Label("text", "Вы бы хотели быть феей?")
 
-            @Html.RadioButton("radio", new { @class = "form-check-input" })
+            @Html.RadioButton("radio", true,true)
             <label class="form-check-label">Да</label>
 
-            @Html.RadioButton("radio", new { @class = "form-check-input" })
+            @Html.RadioButton("radio",false )
             <label class="form-check-label">Нет</label>
 
             <button class="button-voting">Отправить</button>
         </div>
-
+        }
 
     </div>
 

@@ -198,6 +198,10 @@ namespace DataAccess.Models
                 };
             question.ForEach(str => context.Questions.Add(str));
 
+            context.Answers.Add(new Answer {Result = true});
+            context.Answers.Add(new Answer {Result = false});
+            context.Answers.Add(new Answer {Result = true});
+
             context.SaveChanges();
 
         }

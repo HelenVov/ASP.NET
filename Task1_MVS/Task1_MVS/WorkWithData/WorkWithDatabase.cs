@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Configuration;
 using DataAccess.Models;
 using Task1_MVC.Models;
+using Task1_MVS.Models;
+using WebGrease.Css.Extensions;
 
 namespace Task1_MVC.WorkWithData
 {
@@ -13,11 +15,21 @@ namespace Task1_MVC.WorkWithData
     {
         private readonly SetBlogDataContext _context;
 
+
         public WorkWithDatabase(SetBlogDataContext context)
         {
             _context = context;
         }
 
+        public AnswerResultViewModel GetAnswerResult()
+        {
+            return new AnswerResultViewModel
+            {
+                YesCount = _context.Answers.Count(x => x.Result),
+                NoCount = _context.Answers.Count(x => !x.Result)
+            };
+
+        }
         public IEnumerable<Article> GetArticles()
         {
             var articles = _context.Articles.ToList();
@@ -55,6 +67,12 @@ namespace Task1_MVC.WorkWithData
             }
 
             return text;
+        }
+
+        public void AddAnswer(bool result)
+        {
+            _context.Answers.Add(new Answer {Result = result});
+            _context.SaveChanges();
         }
     }
 }

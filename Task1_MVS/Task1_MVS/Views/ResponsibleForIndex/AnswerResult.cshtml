@@ -1,0 +1,17 @@
+﻿@model Task1_MVS.Models.AnswerResultViewModel
+@{
+    ViewBag.Title = "Ответы";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+
+}
+
+
+<div class="card text-white bg-dark mb-3 ">
+    <p class="card-header">Ответы </p>
+    <div class="card-body">
+        <p class="card-text">Ответов да = @Model.YesCount</p>
+        <p class="card-text">Ответов нет = @Model.NoCount</p>
+
+    </div>
+   
+</div>
